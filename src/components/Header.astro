@@ -1,0 +1,82 @@
+<header class="main-header">
+    <div class="logo-container">
+        <img src="/images/logo.png" alt="Dream Breakfast Club logo" class="logo-image">
+    </div>
+    
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#today">Today's breakfast</a></li>
+            <li><a href="#past">Past breakfasts</a></li>
+            <li><a href="#about">About us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+    .main-header {
+        background-color: white; 
+        padding: 0.5rem var(--spacing-md);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    .logo-container {
+        padding: 0.5rem 0;
+    }
+    
+    .logo-image {
+        max-width: 250px;
+        height: auto;
+    }
+    
+    .main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0.5rem 0;
+        font-family: var(--font-body); /* Aleo 폰트 */
+        font-size: 1rem;
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+    
+    .main-nav a {
+        padding: 0.3rem 0.5rem;
+        color: var(--color-text-dark); /* 검정색 텍스트 */
+        font-weight: 700;
+        position: relative;
+    }
+
+    .main-nav a:hover {
+    color: #C7B3F1;
+    transition: color 0.1s ease;
+}
+
+
+    /* 데스크톱 반응형 스타일 */
+    @media (min-width: 768px) {
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem var(--spacing-lg);
+        }
+        .logo-container {
+            padding: 0;
+        }
+        .main-nav ul {
+            justify-content: flex-end;
+            gap: var(--spacing-lg);
+            padding: 0;
+            font-size: 1.1rem;
+            overflow-x: visible; 
+        }
+        .logo-image {
+            max-width: 300px;
+        }
+    }
+</style>

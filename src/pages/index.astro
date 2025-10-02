@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const todayBreakfastImage = '/images/today-breakfast.png';
+const pastBreakfasts = [
+    '/images/past-breakfast-1.png',
+    '/images/past-breakfast-2.png',
+    '/images/past-breakfast-3.png',
+    '/images/past-breakfast-4.png',
+];
+---
+
+<BaseLayout title="Home - Dream Breakfast Club">
+    <Header />
+    
+    <main>
+        
+        <section id="today" class="content-section today-breakfast-section">
+            <h2 class="section-title">Today's breakfast</h2>
+            <div class="breakfast-card">
+                <img src={todayBreakfastImage} alt="Today's Breakfast: Aurora Pancakes" class="breakfast-image">
+                <div class="card-content">
+                    <h3>Aurora Pancakes</h3>
+                    <p>Fluffy pancakes topped with pastel syrup that shimmers like the northern lights, finished with a light sprinkle of golden sugar to make your morning feel a little more special.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="past" class="content-section past-breakfasts-section">
+            <h2 class="section-title">Past breakfasts</h2>
+            <div class="past-breakfasts-grid">
+                {pastBreakfasts.map(imageSrc => (
+                    <img src={imageSrc} alt="past breakfast image" class="past-breakfast-item" />
+                ))}
+            </div>
+        </section>
+
+        <section id="about" class="content-section about-us-section">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <p class="welcome-text">Welcome to the <bDream Breakfast Club</b></p>
+                <p>We're a community devoted to making mornings magical. We find our culinary inspiration from fantasy lands and fairy tales. From rainbow butter croissants to stardust soufflés, our creations are a feast for the eyes and imagination.</p>
+            </div>
+        </section>
+        
+    </main>
+
+    <Footer />
+</BaseLayout>
+
+<style>
+    /* 섹션 공통 스타일 */
+    .section-title {
+        font-family: var(--font-heading);
+        color: var(--color-primary-dark);
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-md);
+        padding-top: var(--spacing-md);
+    }
+    
+    .content-section {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    /* Today's breakfast 섹션 */
+    .today-breakfast-section {
+        background-color: var(--color-card-bg);
+        padding-top: 0;
+    }
+    .breakfast-card {
+        background-color: var(--color-card-bg);
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+        max-width: 400px;
+    }
+    .breakfast-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+    .card-content {
+        text-align: center;
+        padding: var(--spacing-md);
+        border-top: 1px solid var(--color-primary-light);
+    }
+    .card-content h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    /* Past breakfasts 섹션 */
+    .past-breakfasts-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .past-breakfast-item {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: var(--border-radius-lg);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .past-breakfast-item:hover {
+        transform: scale(1.05);
+    }
+
+    /* About Us 섹션 */
+    .about-us-section {
+        background-color: var(--color-card-bg);
+        text-align: center;
+        padding-bottom: 0;
+    }
+    .about-content {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
+        padding-bottom: var(--spacing-md);
+    }
+    .welcome-text {
+        font-style: italic;
+        font-weight: bold;
+        color: var(--color-accent);
+    }
+    .address {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+
+    /* 데스크톱 반응형 스타일 */
+    @media (min-width: 768px) {
+        /* Section Padding */
+        .content-section {
+            padding: var(--spacing-lg) calc(var(--spacing-lg) * 2);
+        }
+        
+        .breakfast-card {
+            max-width: 600px;
+        }
+
+        .past-breakfasts-grid {
+            /* 데스크톱: 4x1 그리드 */
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 1000px;
+            gap: var(--spacing-md);
+        }
+    }
+</style>
