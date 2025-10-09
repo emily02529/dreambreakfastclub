@@ -1,0 +1,143 @@
+---
+export interface Props {
+  id: string;
+  image: string;
+  title: string;
+  description: string;
+}
+
+const { id, image, title, description } = Astro.props;
+---
+
+<dialog id={id} class="past-breakfast-modal">
+  <div class="modal-content-wrapper">
+    <button class="modal-close-button" aria-label="Close modal">
+      <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    </button>
+    <div class="modal-body">
+      <div class="modal-image-container">
+        <img src={image} alt={title} class="modal-image" />
+      </div>
+      <div class="modal-text-content">
+        <h3 class="modal-title">{title}</h3>
+        <p class="modal-description">{description}</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script define:vars={{ id }}>
+  //   JavaScript:       
+  const dialog = document.getElementById(id);
+  
+  if (dialog && typeof dialog.close === 'function') {
+    //     
+    const closeButton = dialog.querySelector('.modal-close-button');
+    if (closeButton) {
+      closeButton.addEventListener('click', () => {
+        dialog.close();
+      });
+    }
+
+    //     
+    dialog.addEventListener('click', (event) => {
+      const rect = dialog.getBoundingClientRect();
+      //     
+      const isInDialog = (
+        rect.top <= event.clientY &&
+        event.clientY <= rect.bottom &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.right
+      );
+
+      if (!isInDialog) {
+        dialog.close();
+      }
+    });
+  }
+</script>
+
+<style>
+  .past-breakfast-modal {
+    padding: 0;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    max-width: 90%;
+    width: 450px;
+    background-color: white;
+    margin: auto;
+  }
+
+  .past-breakfast-modal::backdrop {
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(4px);
+  }
+  
+  .modal-content-wrapper {
+    padding: 2rem; 
+    position: relative;
+  }
+
+  .modal-close-button {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: #e8a2f1;
+    border: 4px solid white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+
+  .heart-icon {
+    width: 20px;
+    height: 20px;
+    color: white;
+  }
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .modal-image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 1rem; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .modal-title {
+    color: var(--color-primary-dark);
+    font-size: 1.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-description {
+    color: var(--color-text-body);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+</style>
