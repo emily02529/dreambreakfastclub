@@ -1,91 +1,95 @@
 /*
 =====================================================
-  Astro Global Styles (CSS)
+Astro Global Styles (CSS)
 =====================================================
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
 
 :root {
-    --color-primary-light: #fbe6ff;
-    --color-primary-dark: #000000;
-    --color-accent: #e89eff;
-    --color-text-dark: #000;      
-    --color-text-light: #fff;
-    --color-card-bg: #fff;
-    
-    --font-heading: 'Rubik Bubbles', cursive; /* 섹션 제목용 */
-    --font-body: 'Aleo', serif;             /* 본문 및 메뉴용 */
-    
-    --spacing-md: 1.5rem;
-    --spacing-lg: 3rem;
-    --border-radius-lg: 1.5rem;
+--color-primary-light: #fbe6ff;
+--color-primary-dark: #000000;
+--color-accent: #e89eff;
+--color-text-dark: #000;
+--color-text-light: #fff;
+--color-card-bg: #fff;
+--color-primary-light-border: #fbe6ff;
+--color-text-body: #333;
+--font-heading: 'Rubik Bubbles', cursive;
+--font-body: 'Aleo', serif;
+--spacing-md: 1.5rem;
+--spacing-lg: 3rem;
+--border-radius-lg: 1.5rem;
+--header-height: 180px;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
-    font-size: 16px;
+scroll-behavior: smooth;
+scroll-padding-top: var(--header-height);
+font-size: 16px;
 }
 
 body {
-    font-family: var(--font-body);
-    color: var(--color-text-dark);
-    line-height: 1.6;
-  background-color: var(--color-primary-light);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M0,0 l48,48 M48,0 l-48,48' stroke='%23ebb9ff' style='stroke: %23ebb9ff' fill='none' stroke-width='1'/%3E%3C/svg%3E");
-    padding-top: 250px;
+font-family: var(--font-body);
+color: var(--color-text-dark);
+line-height: 1.6;
+background-color: var(--color-primary-light);
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M0,0 l48,48 M48,0 l-48,48' stroke='%23ebb9ff' style='stroke: %23ebb9ff' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+padding-top: 250px;
 }
 
 a {
-    text-decoration: none;
-    color: var(--color-text-dark);
+text-decoration: none;
+color: var(--color-text-dark);
 }
 
 ul {
-    list-style: none;
+list-style: none;
 }
 
 .section-title {
-    font-family: var(--font-heading);
-    color: var(--color-text-dark);
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-md);
-    padding-top: var(--spacing-md);
+font-family: var(--font-heading);
+color: var(--color-text-dark);
+text-align: center;
+font-size: 2.5rem;
+margin-bottom: var(--spacing-md);
+padding-top: var(--spacing-md);
 }
 
 .content-section {
-    padding: var(--spacing-lg) var(--spacing-md);
-    background-color: transparent !important;
+padding: var(--spacing-lg) var(--spacing-md);
+background-color: transparent !important;
 }
 
 .breakfast-card {
-    background-color: var(--color-card-bg);
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    max-width: 400px;
-    overflow: hidden;
+background-color: var(--color-card-bg);
+border-radius: var(--border-radius-lg);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+margin: 0 auto;
+max-width: 400px;
+overflow: hidden;
 }
 
 
 /*
 =====================================================
-  반응형 (데스크톱)
+반응형 (데스크톱)
 =====================================================
 */
 @media (min-width: 768px) {
-    main {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    body {
-        padding-top: 200px; 
-    }
+main {
+max-width: 1200px;
+margin: 0 auto;
+}
+body {
+padding-top: 200px;
+}
 }

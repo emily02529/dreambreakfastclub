@@ -5,156 +5,420 @@ import Footer from '../components/Footer.astro';
 
 const todayBreakfastImage = '/images/today-breakfast.png';
 const pastBreakfasts = [
-    '/images/past-breakfast-1.png',
-    '/images/past-breakfast-2.png',
-    '/images/past-breakfast-3.png',
-    '/images/past-breakfast-4.png',
+    '/images/past-breakfast-1.png',
+    '/images/past-breakfast-2.png',
+    '/images/past-breakfast-3.png',
+    '/images/past-breakfast-4.png',
+];
+
+const members = [
+    {
+        name: 'Chef Barnaby',
+        title: 'Head Baker',
+        image: '/images/bear.png',
+        description: "Chef Barnaby, the heart of the club, ensures every bite is a warm hug. His paws are legendary for creating gravity-defying soufflés and the fluffiest moon-pancakes."
+    },
+    {
+        name: 'Elara the Sprinklesmith',
+        title: 'Alchemist',
+        image: '/images/fairy.png',
+        description: "Elara gathers the sweetest dawn dew and the brightest stardust to craft our bespoke syrups and edible petals. Her motto: \"If it doesn't sparkle, it's not finished\"."
+    },
+    {
+        name: 'Whisper',
+        title: 'Official Taste-Tester',
+        image: '/images/rabbit.png',
+        description: "Whisper, our official ambassador, ensures every recipe meets the highest standard of enchantment. Her sensitive nose detects the perfect blend of joy and sugar."
+    },
 ];
 ---
 
-<BaseLayout title="Home - Dream Breakfast Club">
-    <Header />
-    
-    <main>
-        
-        <section id="today" class="content-section today-breakfast-section">
-            <h2 class="section-title">Today's breakfast</h2>
-            <div class="breakfast-card">
-                <img src={todayBreakfastImage} alt="Today's Breakfast: Aurora Pancakes" class="breakfast-image">
-                <div class="card-content">
-                    <h3>Aurora Pancakes</h3>
-                    <p>Fluffy pancakes topped with pastel syrup that shimmers like the northern lights, finished with a light sprinkle of golden sugar to make your morning feel a little more special.</p>
-                </div>
-            </div>
-        </section>
+<BaseLayout title="Dream Breakfast Club">
+    <Header />
+    
+    <main>
+        
+        <section id="today" class="content-section today-breakfast-section">
+            <h2 class="section-title">Today's breakfast</h2>
+            <div class="breakfast-card">
+                <img src={todayBreakfastImage} alt="Today's Breakfast: Aurora Pancakes" class="breakfast-image">
+                <div class="card-content">
+                    <h3>Aurora Pancakes</h3>
+                    <p>Fluffy pancakes topped with pastel syrup that shimmers like the northern lights, finished with a light sprinkle of golden sugar to make your morning feel a little more special.</p>
+                </div>
+            </div>
+        </section>
 
-        <section id="past" class="content-section past-breakfasts-section">
-            <h2 class="section-title">Past breakfasts</h2>
-            <div class="past-breakfasts-grid">
-                {pastBreakfasts.map(imageSrc => (
-                    <img src={imageSrc} alt="past breakfast image" class="past-breakfast-item" />
-                ))}
-            </div>
-        </section>
+       <section id="past" class="content-section past-breakfasts-section">
+            <h2 class="section-title chalkboard-title">Past breakfasts</h2>
+            <div class="past-breakfasts-grid">
+                {pastBreakfasts.map(imageSrc => (
+                    <img src={imageSrc} alt="past breakfast image" class="past-breakfast-item" />
+                ))}
+            </div>
+            
+            <div class="chalkboard-footer">
+                <p class="chalkboard-text">What <span class="chalkboard-magic">magic</span> was used?</p>
+                <p class="chalkboard-text-small">Check the archives :)</p>
+                <div class="chalk-tray">
+                    <div class="chalk blue"></div>
+                    <div class="chalk red"></div>
+                    <div class="chalk white"></div>
+                </div>
+            </div>
+        </section>
 
-        <section id="about" class="content-section about-us-section">
-            <h2 class="section-title">About Us</h2>
-            <div class="about-content">
-                <p class="welcome-text">Welcome to the <bDream Breakfast Club</b></p>
-                <p>We're a community devoted to making mornings magical. We find our culinary inspiration from fantasy lands and fairy tales. From rainbow butter croissants to stardust soufflés, our creations are a feast for the eyes and imagination.</p>
-            </div>
-        </section>
-        
-    </main>
+        <section id="about" class="content-section about-us-section">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <p class="welcome-text">Welcome to the <b>Dream Breakfast Club</b></p>
+                <p>We're a community devoted to making mornings magical. We find our culinary inspiration from fantasy lands and fairy tales. From rainbow butter croissants to stardust soufflés, our creations are a feast for the eyes and imagination.</p>
+            </div>
+        </section>
 
-    <Footer />
+        <section id="members" class="content-section members-section">
+            <h2 class="members-title">Meet our members!</h2>
+            <div class="members-grid">
+                {members.map(member => (
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src={member.image} alt={`${member.name} image`} class="member-image" />
+                        </div>
+                        <div class="member-info">
+                            <p class="member-title">{member.title}</p>
+                            <h3 class="member-name">{member.name}</h3>
+                            <p class="member-description">{member.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+        
+    </main>
+
+    <Footer />
 </BaseLayout>
 
 <style>
-    /* 섹션 공통 스타일 */
-    .section-title {
-        font-family: var(--font-heading);
-        color: var(--color-primary-dark);
-        text-align: center;
-        font-size: 2.5rem;
-        margin-bottom: var(--spacing-md);
-        padding-top: var(--spacing-md);
-    }
-    
-    .content-section {
-        padding: var(--spacing-lg) var(--spacing-md);
-    }
+    /* Section common styles */
+    .section-title {
+        font-family: var(--font-heading);
+        color: var(--color-primary-dark);
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-md);
+        padding-top: var(--spacing-md);
+    }
+    
+    .content-section {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
 
-    /* Today's breakfast 섹션 */
-    .today-breakfast-section {
-        background-color: var(--color-card-bg);
-        padding-top: 0;
-    }
-    .breakfast-card {
-        background-color: var(--color-card-bg);
-        border-radius: var(--border-radius-lg);
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        margin: 0 auto;
-        max-width: 400px;
-    }
-    .breakfast-image {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
-    }
-    .card-content {
-        text-align: center;
-        padding: var(--spacing-md);
-        border-top: 1px solid var(--color-primary-light);
-    }
-    .card-content h3 {
-        margin-top: 0;
-        margin-bottom: 0.5rem;
-        font-size: 1.5rem;
-    }
+    /* Today's breakfast section */
+    .today-breakfast-section {
+        background-color: var(--color-card-bg);
+        padding-top: 0;
+    }
+    .breakfast-card {
+        background-color: var(--color-card-bg);
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+        max-width: 400px;
+    }
+    .breakfast-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+    .card-content {
+        text-align: center;
+        padding: var(--spacing-md);
+        border-top: 1px solid var(--color-primary-light-border);
+    }
+    .card-content h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+    }
+    .past-breakfasts-section {
+        background-color: #2e5959 !important; 
+        border: 10px solid #b1886eff;
+        padding: var(--spacing-md);
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }   
 
-    /* Past breakfasts 섹션 */
-    .past-breakfasts-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-md);
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    .past-breakfast-item {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: var(--border-radius-lg);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
-    .past-breakfast-item:hover {
-        transform: scale(1.05);
-    }
+    .chalkboard-title {
+        font-family: 'Kalam', cursive;
+        color: #ffffff;
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: var(--spacing-md);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
 
-    /* About Us 섹션 */
-    .about-us-section {
-        background-color: var(--color-card-bg);
-        text-align: center;
-        padding-bottom: 0;
-    }
-    .about-content {
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 0 var(--spacing-md);
-        padding-bottom: var(--spacing-md);
-    }
-    .welcome-text {
-        font-style: italic;
-        font-weight: bold;
-        color: var(--color-accent);
-    }
-    .address {
-        margin-top: 1rem;
-        font-size: 0.9rem;
-        color: #666;
-    }
+.past-breakfasts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    max-width: 400px; 
+    padding: var(--spacing-md);
+    margin: 0 auto;
+}
+.past-breakfast-item {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--border-radius-lg);
+}
+
+.past-breakfast-item:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+.chalkboard-footer {
+    max-width: 400px;
+    margin: var(--spacing-lg) auto 0 auto;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0;
+}
+
+.chalkboard-text {
+    font-family: 'Kalam', cursive;
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+.chalkboard-text-small {
+    font-family: 'Kalam', cursive;
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.chalkboard-magic {
+    border: 2px solid #5dccffff; 
+    border-radius: 50%;
+    padding: 0 0.5rem;
+    display: inline-block;
+    position: relative;
+    top: -0.1rem;
+}
+
+.chalk-tray {
+    position: absolute;
+    bottom: -75px;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background-color: #6d6d6d;
+    border-radius: 0 0 5px 5px;
+}
+
+.chalk {
+    position: absolute;
+    top: -10px;
+    width: 50px;
+    height: 10px;
+    border-radius: 2px;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.chalk.blue {
+    background-color: #5dccffff;
+    left: 20%;
+    transform: rotate(10deg);
+}
+.chalk.red {
+    background-color: #e7a4a4;
+    left: 40%;
+    transform: rotate(-5deg);
+}
+.chalk.white {
+    background-color: #ffffff;
+    right: 20%;
+    transform: rotate(20deg);
+}
 
 
-    /* 데스크톱 반응형 스타일 */
-    @media (min-width: 768px) {
-        /* Section Padding */
-        .content-section {
-            padding: var(--spacing-lg) calc(var(--spacing-lg) * 2);
-        }
-        
-        .breakfast-card {
-            max-width: 600px;
-        }
+    /* About Us section */
+    .about-us-section {
+        background-color: var(--color-card-bg) !important;
+        text-align: center;
+        padding-bottom: 1em;
+        padding-top: 1em;
+        color: var(--color-text-dark);
+    }
+    .about-content {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
+        padding-bottom: var(--spacing-md);
+    }
+    .welcome-text {
+        font-style: italic;
+        font-weight: bold;
+        color: var(--color-accent);
+    }
+    .address {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: var(--color-text-body);
+    }
 
-        .past-breakfasts-grid {
-            /* 데스크톱: 4x1 그리드 */
-            grid-template-columns: repeat(4, 1fr);
-            max-width: 1000px;
-            gap: var(--spacing-md);
-        }
-    }
+.members-title {
+    font-family: 'Rozha One', serif;
+    color: var(--color-primary-dark);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+}
+
+.members-grid {
+    display: flex;
+    flex-direction: column; 
+    gap: var(--spacing-lg);
+    max-width: 500px; 
+    margin: 0 auto;
+}
+
+.member-card {
+    display: flex; 
+    align-items: flex-start; 
+    background-color: #e8a2f144;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+}
+
+
+.member-image-container {
+    width: 18em;
+    height: 100%;
+    min-width: 15rem;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+    margin-right: var(--spacing-md);
+    margin-left: calc(-1 * var(--spacing-md));
+    margin-top: calc(-1 * var(--spacing-md));
+    margin-bottom: calc(-1* var(--spacing-md));
+
+}
+
+.member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.member-info {
+    text-align: left; 
+    padding: 0;
+    flex-grow: 1; 
+}
+
+.member-title {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.member-name {
+    font-size: 1.4rem; 
+    color: var(--color-primary-dark);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.member-description {
+    font-size: 1rem;
+    color: var(--color-text-body);
+    margin-top: 1rem;
+}
+
+    /* Desktop responsive styles (min-width: 768px) */
+    @media (min-width: 768px) {
+        .content-section {
+            padding: var(--spacing-lg) 0;
+        }
+        
+        .breakfast-card {
+            max-width: 600px;
+        }
+
+        .past-breakfasts-grid {
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 800px;
+            gap: var(--spacing-md);
+        }
+
+    .members-grid {
+        max-width: 1000px;
+    }
+
+    .member-image-container {
+        width: 18rem; 
+        min-width: 18rem;
+        max-width: 18rem;
+        margin-right: var(--spacing-lg);
+        margin-left: calc(-1 * var(--spacing-lg)); 
+        margin-top: calc(-1 * var(--spacing-lg));
+        margin-bottom: calc(-1 * var(--spacing-lg));
+    }
+    
+    .member-card {
+        padding: var(--spacing-lg);
+    }
+
+    .member-title {
+        font-size: 1.2rem;
+    }
+
+    .member-name {
+        font-size: 2.2rem;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .member-description {
+        font-size: 1rem;
+    }
+
+    .past-breakfasts-section {
+        padding: var(--spacing-lg) var(--spacing-md); 
+    }
+
+    .past-breakfasts-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1000px;
+        gap: var(--spacing-md);
+    }
+    
+    .chalkboard-footer {
+        max-width: 1000px;
+        text-align: center;
+        padding-right: 15%;
+        padding-left: 15%;
+    }
+    
+    .chalkboard-title {
+        font-size: 4rem;
+    }
+
+    .chalk-tray {
+    bottom: -100px; 
+    }
+
+
+        
+    }
+    
 </style>
