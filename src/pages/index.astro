@@ -53,7 +53,24 @@ const members = [
 
 <BaseLayout title="Home - Dream Breakfast Club">
     <Header />
+ <script>
+                const header = document.querySelector('.main-header');
+                const aboutUs = document.querySelector('.about-us-section');
+               
 
+                const headerHeight = header.offsetHeight || 0;
+                function onScroll() {
+                    const rect = aboutUs.getBoundingClientRect();
+                    if (rect.top <= (headerHeight + 50 )&& rect.bottom > headerHeight) {
+                        aboutUs.classList.add('is-scrolled-under-header');
+                    } else {
+                        aboutUs.classList.remove('is-scrolled-under-header');
+                    }
+                }
+                window.addEventListener('scroll', onScroll, { passive: true });
+                onScroll();
+            
+        </script>
     <main>
 
         <section id="today" class="content-section today-breakfast-section">
@@ -143,7 +160,11 @@ const members = [
     </main>
 
     <Footer />
+
+     
 </BaseLayout>
+  
+
 
 <style>
 
@@ -188,8 +209,8 @@ const members = [
         padding: var(--spacing-md);
         margin-top: 4rem;
         margin-bottom: 4rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
     }
 
@@ -198,7 +219,6 @@ const members = [
         color: #ffffff;
         text-align: center;
         font-size: 3rem;
-        margin-bottom: var(--spacing-md);
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
     }
 
@@ -307,6 +327,11 @@ const members = [
         position: relative;
         left: 50%;
         transform: translateX(-50%);
+        transition: background-color 0.3s;
+    }
+
+    .about-us-section.is-scrolled-under-header {
+        background-color: #f0cbff !important;
     }
 
     .about-content {
@@ -319,7 +344,7 @@ const members = [
     .welcome-text {
         font-style: italic;
         font-weight: bold;
-        color: var(--color-accent);
+        margin-bottom: var(--spacing-sm);
     }
 
     /* Members section */
