@@ -1,85 +1,98 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import PastBreakfastModal from '../components/PastBreakfastModal.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import PastBreakfastModal from "../components/PastBreakfastModal.astro";
 
-const todayBreakfastImage = '/images/today-breakfast.png';
+const todayBreakfastImage = "/images/today-breakfast.png";
 
 const pastBreakfasts = [
     {
-        image: '/images/past-breakfast-1.png',
-        title: 'Aurora Pancakes',
-        description: "Fluffy pancakes topped with pastel syrup that shimmers like the northern lights, finished with a light sprinkle of golden sugar to make your morning feel a little more special."
+        image: "/images/past-breakfast-1.png",
+        title: "Aurora Pancakes",
+        description:
+            "Fluffy pancakes topped with pastel syrup that shimmers like the northern lights, finished with a light sprinkle of golden sugar to make your morning feel a little more special.",
     },
     {
-        image: '/images/past-breakfast-2.png',
-        title: 'Sunrise Souffle Omelet',
-        description: "A cloud-like souffl omelet infused with the warm hues of sunrisesoft orange, yellow, and pink. Light, fluffy, and filled with comfort to brighten your day.",
+        image: "/images/past-breakfast-2.png",
+        title: "Sunrise Souffle Omelet",
+        description:
+            "A cloud-like souffl omelet infused with the warm hues of sunrisesoft orange, yellow, and pink. Light, fluffy, and filled with comfort to brighten your day.",
     },
     {
-        image: '/images/past-breakfast-3.png',
-        title: 'Starlight Berry Parfait',
-        description: "Layers of sparkling star-shaped jelly, fresh berries, and soft cream create a parfait that shines as brightly as the night sky. A sweet, dreamy delight in every spoonful.",
+        image: "/images/past-breakfast-3.png",
+        title: "Starlight Berry Parfait",
+        description:
+            "Layers of sparkling star-shaped jelly, fresh berries, and soft cream create a parfait that shines as brightly as the night sky. A sweet, dreamy delight in every spoonful.",
     },
     {
-        image: '/images/past-breakfast-4.png',
-        title: 'Fairy Toast',
-        description: "Toasted bread topped with a thin layer of pastel icing, edible flower petals, and sparkling sprinkles. A whimsical bite that feels like fairies sprinkled magic dust just for you",
+        image: "/images/past-breakfast-4.png",
+        title: "Fairy Toast",
+        description:
+            "Toasted bread topped with a thin layer of pastel icing, edible flower petals, and sparkling sprinkles. A whimsical bite that feels like fairies sprinkled magic dust just for you",
     },
 ];
 
 const members = [
     {
-        name: 'Chef Barnaby',
-        title: 'Head Baker',
-        image: '/images/bear.png',
-        description: "Chef Barnaby, the heart of the club, ensures every bite is a warm hug. His paws are legendary for creating gravity-defying souffls and the fluffiest moon-pancakes."
+        name: "Chef Barnaby",
+        title: "Head Baker",
+        image: "/images/bear.png",
+        description:
+            "Chef Barnaby, the heart of the club, ensures every bite is a warm hug. His paws are legendary for creating gravity-defying souffls and the fluffiest moon-pancakes.",
     },
     {
-        name: 'Elara the Sprinklesmith',
-        title: 'Alchemist',
-        image: '/images/fairy.png',
-        description: "Elara gathers the sweetest dawn dew and the brightest stardust to craft our bespoke syrups and edible petals. Her motto: \"If it doesn't sparkle, it's not finished\"."
+        name: "Elara the Sprinklesmith",
+        title: "Alchemist",
+        image: "/images/fairy.png",
+        description:
+            "Elara gathers the sweetest dawn dew and the brightest stardust to craft our bespoke syrups and edible petals. Her motto: \"If it doesn't sparkle, it's not finished\".",
     },
     {
-        name: 'Whisper',
-        title: 'Official Taste-Tester',
-        image: '/images/rabbit.png',
-        description: "Whisper, our official ambassador, ensures every recipe meets the highest standard of enchantment. Her sensitive nose detects the perfect blend of joy and sugar."
+        name: "Whisper",
+        title: "Official Taste-Tester",
+        image: "/images/rabbit.png",
+        description:
+            "Whisper, our official ambassador, ensures every recipe meets the highest standard of enchantment. Her sensitive nose detects the perfect blend of joy and sugar.",
     },
 ];
 ---
 
 <BaseLayout title="Home - Dream Breakfast Club">
     <Header />
- <script>
-                const header = document.querySelector('.main-header');
-                const aboutUs = document.querySelector('.about-us-section');
-               
+    <script>
+        const header = document.querySelector(".main-header");
+        const aboutUs = document.querySelector(".about-us-section");
 
-                const headerHeight = header.offsetHeight || 0;
-                function onScroll() {
-                    const rect = aboutUs.getBoundingClientRect();
-                    if (rect.top <= (headerHeight + 50 )&& rect.bottom > headerHeight) {
-                        aboutUs.classList.add('is-scrolled-under-header');
-                    } else {
-                        aboutUs.classList.remove('is-scrolled-under-header');
-                    }
-                }
-                window.addEventListener('scroll', onScroll, { passive: true });
-                onScroll();
-            
-        </script>
+        const headerHeight = header.offsetHeight || 0;
+        function onScroll() {
+            const rect = aboutUs.getBoundingClientRect();
+            if (rect.top <= headerHeight + 50 && rect.bottom > headerHeight) {
+                aboutUs.classList.add("is-scrolled-under-header");
+            } else {
+                aboutUs.classList.remove("is-scrolled-under-header");
+            }
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+    </script>
     <main>
-
         <section id="today" class="content-section today-breakfast-section">
             <h2 class="section-title">Today's breakfast</h2>
             <div class="breakfast-card">
-                <img src={todayBreakfastImage} alt="Today's Breakfast: Aurora Pancakes" class="breakfast-image">
+                <img
+                    src={todayBreakfastImage}
+                    alt="Today's Breakfast: Aurora Pancakes"
+                    class="breakfast-image"
+                />
                 <div class="card-content">
                     <h3>Aurora Pancakes</h3>
-                    <p>Fluffy pancakes topped with pastel syrup that shimmers like the northern lights, finished with a light sprinkle of golden sugar to make your morning feel a little more special.</p>
+                    <p>
+                        Fluffy pancakes topped with pastel syrup that shimmers
+                        like the northern lights, finished with a light sprinkle
+                        of golden sugar to make your morning feel a little more
+                        special.
+                    </p>
                 </div>
             </div>
         </section>
@@ -87,18 +100,22 @@ const members = [
         <section id="past" class="content-section past-breakfasts-section">
             <h2 class="section-title chalkboard-title">Past breakfasts</h2>
             <div class="past-breakfasts-grid">
-                {pastBreakfasts.map((item, index) => (
-                    <img
-                        src={item.image}
-                        alt={`past breakfast image ${index + 1}`}
-                        class="past-breakfast-item"
-                        data-modal-target={`breakfast-modal-${index}`}
-                    />
-                ))}
+                {
+                    pastBreakfasts.map((item, index) => (
+                        <img
+                            src={item.image}
+                            alt={`past breakfast image ${index + 1}`}
+                            class="past-breakfast-item"
+                            data-modal-target={`breakfast-modal-${index}`}
+                        />
+                    ))
+                }
             </div>
 
             <div class="chalkboard-footer">
-                <p class="chalkboard-text">What <span class="chalkboard-magic">magic</span> was used?</p>
+                <p class="chalkboard-text">
+                    What <span class="chalkboard-magic">magic</span> was used?
+                </p>
                 <p class="chalkboard-text-small">Check the archives :)</p>
                 <div class="chalk-tray">
                     <div class="chalk blue"></div>
@@ -108,23 +125,27 @@ const members = [
             </div>
         </section>
 
-        {pastBreakfasts.map((item, index) => (
-            <PastBreakfastModal
-                id={`breakfast-modal-${index}`}
-                image={item.image}
-                title={item.title}
-                description={item.description}
-            />
-        ))}
+        {
+            pastBreakfasts.map((item, index) => (
+                <PastBreakfastModal
+                    id={`breakfast-modal-${index}`}
+                    image={item.image}
+                    title={item.title}
+                    description={item.description}
+                />
+            ))
+        }
 
         <script>
-            const modalImages = document.querySelectorAll('.past-breakfast-item[data-modal-target]');
+            const modalImages = document.querySelectorAll(
+                ".past-breakfast-item[data-modal-target]",
+            );
 
-            modalImages.forEach(image => {
-                image.addEventListener('click', () => {
+            modalImages.forEach((image) => {
+                image.addEventListener("click", () => {
                     const targetId = image.dataset.modalTarget;
                     const modal = document.getElementById(targetId);
-                    if (modal && typeof modal.showModal === 'function') {
+                    if (modal && typeof modal.showModal === "function") {
                         modal.showModal();
                     }
                 });
@@ -134,49 +155,57 @@ const members = [
         <section id="about" class="content-section about-us-section">
             <h2 class="section-title">About Us</h2>
             <div class="about-content">
-                <p class="welcome-text">Welcome to the <b>Dream Breakfast Club</b></p>
-                <p>We're a community devoted to making mornings magical. We find our culinary inspiration from fantasy lands and fairy tales. From rainbow butter croissants to stardust souffls, our creations are a feast for the eyes and imagination.</p>
+                <p class="welcome-text">
+                    Welcome to the <b>Dream Breakfast Club</b>
+                </p>
+                <p>
+                    We're a community devoted to making mornings magical. We
+                    find our culinary inspiration from fantasy lands and fairy
+                    tales. From rainbow butter croissants to stardust souffls,
+                    our creations are a feast for the eyes and imagination.
+                </p>
             </div>
         </section>
 
         <section id="members" class="content-section members-section">
             <h2 class="members-title">Meet our members!</h2>
             <div class="members-grid">
-                {members.map(member => (
-                    <div class="member-card">
-                        <div class="member-image-container">
-                            <img src={member.image} alt={`${member.name} image`} class="member-image" />
+                {
+                    members.map((member) => (
+                        <div class="member-card">
+                            <div class="member-image-container">
+                                <img
+                                    src={member.image}
+                                    alt={`${member.name} image`}
+                                    class="member-image"
+                                />
+                            </div>
+                            <div class="member-info">
+                                <p class="member-title">{member.title}</p>
+                                <h3 class="member-name">{member.name}</h3>
+                                <p class="member-description">
+                                    {member.description}
+                                </p>
+                            </div>
                         </div>
-                        <div class="member-info">
-                            <p class="member-title">{member.title}</p>
-                            <h3 class="member-name">{member.name}</h3>
-                            <p class="member-description">{member.description}</p>
-                        </div>
-                    </div>
-                ))}
+                    ))
+                }
             </div>
         </section>
-
     </main>
 
     <Footer />
-
-     
 </BaseLayout>
-  
-
 
 <style>
-
-
-.breakfast-card {
-    background-color: var(--color-card-bg);
-    border-radius: var(--border-radius-lg);
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
-    margin: 0 auto;
-    max-width: 400px;
-    overflow: hidden;
-}
+    .breakfast-card {
+        background-color: var(--color-card-bg);
+        border-radius: var(--border-radius-lg);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+        margin: 0 auto;
+        max-width: 400px;
+        overflow: hidden;
+    }
     /* Today's breakfast section */
     .today-breakfast-section {
         background-color: var(--color-card-bg);
@@ -207,10 +236,10 @@ const members = [
         background-color: #2e5959 !important;
         border: 10px solid #b1886eff;
         padding: var(--spacing-md);
-        margin-top: 4rem;
-        margin-bottom: 4rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
     }
 
@@ -226,7 +255,8 @@ const members = [
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-md);
-        max-width: 400px;
+        max-width: 500px;
+        width: 90%;
         padding: var(--spacing-md);
         margin: 0 auto;
     }
@@ -316,7 +346,6 @@ const members = [
         transform: rotate(20deg);
     }
 
-
     /* About Us section */
     .about-us-section {
         background-color: white !important;
@@ -367,12 +396,12 @@ const members = [
 
     .member-card {
         display: flex;
-        align-items: flex-start;
+        flex-direction: column;
+        align-items: center;
         background-color: #e8a2f144;
         padding: var(--spacing-md);
         border-radius: var(--border-radius-lg);
     }
-
 
     .member-image-container {
         width: 18em;
@@ -382,9 +411,9 @@ const members = [
         z-index: 2;
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
         margin-right: var(--spacing-md);
-        margin-left: calc(-1 * var(--spacing-md));
-        margin-top: calc(-1 * var(--spacing-md));
-        margin-bottom: calc(-1 * var(--spacing-md));
+        margin-left: var(--spacing-md);
+        margin-top: calc(-0.2 * var(--spacing-lg));
+        margin-bottom: var(--spacing-md);
     }
 
     .member-image {
@@ -405,17 +434,20 @@ const members = [
         color: var(--color-accent);
         font-weight: bold;
         text-transform: uppercase;
+        text-align: center;
         margin-bottom: 0.25rem;
     }
 
     .member-name {
         font-size: 1.4rem;
+        text-align: center;
         color: var(--color-primary-dark);
         margin: 0;
         line-height: 1.2;
     }
 
     .member-description {
+        text-align: center;
         font-size: 1rem;
         color: var(--color-text-body);
         margin-top: 1rem;
@@ -423,9 +455,8 @@ const members = [
 
     /* Desktop responsive styles (min-width: 768px) */
     @media (min-width: 768px) {
-
         .today-breakfast-section {
-          padding-top: 2.2rem;
+            padding-top: 2.2rem;
         }
 
         /* Past breakfasts section */
@@ -464,9 +495,9 @@ const members = [
             min-width: 18rem;
             max-width: 18rem;
             margin-right: var(--spacing-lg);
-            margin-left: calc(-1 * var(--spacing-lg));
-            margin-top: calc(-1 * var(--spacing-lg));
-            margin-bottom: calc(-1 * var(--spacing-lg));
+            margin-left: var(--spacing-lg);
+            margin-top: calc(-0.5 * var(--spacing-lg));
+            margin-bottom: var(--spacing-lg);
         }
 
         .member-card {
