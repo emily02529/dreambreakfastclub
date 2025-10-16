@@ -94,6 +94,7 @@ const members = [
                         special.
                     </p>
                 </div>
+                <img src="/images/cute-bear.png" alt="Cute bear mascot" class="bear-on-card">
             </div>
         </section>
 
@@ -198,15 +199,39 @@ const members = [
 </BaseLayout>
 
 <style>
-    .breakfast-card {
-        background-color: var(--color-card-bg);
-        border-radius: var(--border-radius-lg);
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
-        margin: 0 auto;
-        max-width: 400px;
-        overflow: hidden;
-    }
-    /* Today's breakfast section */
+.today-breakfast-section .section-title {
+    color: #b89be0;
+    padding-bottom: 2.5rem;
+}
+
+    
+.breakfast-card {
+    background-color: transparent;
+    border-radius: 0;
+    
+    margin: 0 auto;
+    max-width: 400px;
+    position: relative;
+}
+
+.breakfast-card > * { 
+    position: relative;
+    z-index: 2; 
+}
+
+.breakfast-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius-lg);
+    z-index: 1;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+
+}
     .today-breakfast-section {
         background-color: var(--color-card-bg);
         padding-top: 0;
@@ -217,12 +242,23 @@ const members = [
         height: auto;
         display: block;
         object-fit: cover;
+        border-top-left-radius: var(--border-radius-lg); 
+        border-top-right-radius: var(--border-radius-lg);
     }
+
+    .bear-on-card {
+    position: absolute;
+    top: -630px;
+    right: -320px;
+    width: 100px;
+    height: auto;
+    z-index: 10;
+}
 
     .card-content {
         text-align: center;
-        padding: var(--spacing-md);
-        border-top: 1px solid var(--color-primary-light);
+        margin-bottom: 0;
+        padding: var(--spacing-md) var(--spacing-md) var(--spacing-sm) var(--spacing-md);
     }
 
     .card-content h3 {
@@ -231,15 +267,19 @@ const members = [
         font-size: 1.5rem;
     }
 
+    .card-content p {
+    margin-bottom: 0;
+}
+
     /* Past breakfasts section (Chalkboard) */
     .past-breakfasts-section {
         background-color: #2e5959 !important;
         border: 10px solid #b1886eff;
         padding: var(--spacing-md);
         margin-top: 1rem;
-        margin-bottom: 1rem;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
+        margin-bottom: 8rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
     }
 
@@ -255,7 +295,7 @@ const members = [
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-md);
-        max-width: 600px;g
+        max-width: 600px;
         width: 90%;
         padding: var(--spacing-sm);
         margin: 0 auto;
@@ -412,7 +452,7 @@ const members = [
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
         margin-right: var(--spacing-md);
         margin-left: var(--spacing-md);
-        margin-top: calc(-0.2 * var(--spacing-lg));
+        margin-top: var(--spacing-lg);
         margin-bottom: var(--spacing-md);
     }
 
@@ -461,7 +501,14 @@ const members = [
 
         /* Past breakfasts section */
         .past-breakfasts-section {
-            padding: var(--spacing-lg) var(--spacing-md);
+            padding: var(--spacing-md) var(--spacing-md);
+        }
+
+        .bear-on-card {
+        top: -650px;
+        right: -310px;
+        width: 120px;
+        z-index: 10;
         }
 
         .past-breakfasts-grid {
@@ -496,7 +543,7 @@ const members = [
             max-width: 18rem;
             margin-right: var(--spacing-lg);
             margin-left: var(--spacing-lg);
-            margin-top: calc(-0.5 * var(--spacing-lg));
+            margin-top: calc(-0.3 * var(--spacing-lg));
             margin-bottom: var(--spacing-lg);
         }
 
