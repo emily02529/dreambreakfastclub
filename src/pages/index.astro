@@ -79,7 +79,16 @@ const members = [
     <main>
         <section id="today" class="content-section today-breakfast-section">
             <h2 class="section-title">Today's breakfast</h2>
+
+            <img
+                src="/images/cute-bear.png"
+                alt="Cute bear mascot"
+                class="bear-on-card"
+            />
+
             <div class="breakfast-card">
+
+
                 <img
                     src={todayBreakfastImage}
                     alt="Today's Breakfast: Aurora Pancakes"
@@ -94,12 +103,8 @@ const members = [
                         special.
                     </p>
                 </div>
+    
             </div>
-            <img
-                src="/images/cute-bear.png"
-                alt="Cute bear mascot"
-                class="bear-on-card"
-            />
         </section>
 
         <section id="past" class="content-section past-breakfasts-section">
@@ -250,11 +255,11 @@ const members = [
 
     .bear-on-card {
         position: absolute;
-        top: 150px;
-        left: 410px;
+        top: 200px;
+        right: 130px;
         width: 100px;
         height: auto;
-        z-index: 10;
+        z-index: 100;
     }
 
     .card-content {
@@ -274,7 +279,7 @@ const members = [
 
     /* Past breakfasts section (Chalkboard) */
     .past-breakfasts-section {
-        background-color: #2e5959 !important;
+        background-color: #498379 !important;
         border: 10px solid #b1886eff;
         padding: var(--spacing-md);
         margin-top: 1rem;
@@ -494,20 +499,36 @@ const members = [
         margin-top: 1rem;
     }
 
+    @media (min-width: 443px) and (max-width: 599px) {
+    .bear-on-card {
+        top: 150px;
+        right: calc((100vw - 400px) / 2 - 20px); 
+        
+        width: 100px; 
+    }
+}
+
+    @media (min-width: 600px) and (max-width: 767px) {
+    .bear-on-card {
+        top: 150px;
+        right: calc((100vw - 400px) / 2 - 20px); 
+        
+        width: 100px; 
+    }
+}
     /* Desktop responsive styles (min-width: 768px) */
     @media (min-width: 768px) {
         .today-breakfast-section {
             padding-top: 2.2rem;
         }
 
-        .bear-on-card {
-            position: absolute;
-            top: 110px;
-            right: 300px;
-            width: 120px;
-            height: auto;
-            z-index: 10;
-        }
+
+    .bear-on-card {
+        top: 130px; 
+        right: calc((100vw - 400px) / 2 - 20px); 
+        width: 100px; 
+    }
+}
 
         /* Past breakfasts section */
         .past-breakfasts-section {
