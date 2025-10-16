@@ -94,8 +94,12 @@ const members = [
                         special.
                     </p>
                 </div>
-                <img src="/images/cute-bear.png" alt="Cute bear mascot" class="bear-on-card">
             </div>
+            <img
+                src="/images/cute-bear.png"
+                alt="Cute bear mascot"
+                class="bear-on-card"
+            />
         </section>
 
         <section id="past" class="content-section past-breakfasts-section">
@@ -199,42 +203,40 @@ const members = [
 </BaseLayout>
 
 <style>
-.today-breakfast-section .section-title {
-    color: #b89be0;
-    padding-bottom: 2.5rem;
-}
+    .today-breakfast-section .section-title {
+        color: #b89be0;
+        padding-bottom: 2.5rem;
+    }
 
-    
-.breakfast-card {
-    background-color: transparent;
-    border-radius: 0;
-    
-    margin: 0 auto;
-    max-width: 400px;
-    position: relative;
-}
+    .breakfast-card {
+        background-color: transparent;
+        border-radius: 0;
 
-.breakfast-card > * { 
-    position: relative;
-    z-index: 2; 
-}
+        margin: 0 auto;
+        max-width: 400px;
+        position: relative;
+    }
 
-.breakfast-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-card-bg);
-    border-radius: var(--border-radius-lg);
-    z-index: 1;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+    .breakfast-card > * {
+        position: relative;
+        z-index: 2;
+    }
 
-}
+    .breakfast-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-card-bg);
+        border-radius: var(--border-radius-lg);
+        z-index: 1;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+    }
     .today-breakfast-section {
         background-color: var(--color-card-bg);
-        padding-top: 0;
+        position: relative;
     }
 
     .breakfast-image {
@@ -242,23 +244,22 @@ const members = [
         height: auto;
         display: block;
         object-fit: cover;
-        border-top-left-radius: var(--border-radius-lg); 
+        border-top-left-radius: var(--border-radius-lg);
         border-top-right-radius: var(--border-radius-lg);
     }
 
     .bear-on-card {
-    position: absolute;
-    top: -630px;
-    right: -320px;
-    width: 100px;
-    height: auto;
-    z-index: 10;
-}
+        position: absolute;
+        top: 150px;
+        left: 410px;
+        width: 100px;
+        height: auto;
+        z-index: 10;
+    }
 
     .card-content {
         text-align: center;
-        margin-bottom: 0;
-        padding: var(--spacing-md) var(--spacing-md) var(--spacing-sm) var(--spacing-md);
+        padding: var(--spacing-md);
     }
 
     .card-content h3 {
@@ -268,8 +269,8 @@ const members = [
     }
 
     .card-content p {
-    margin-bottom: 0;
-}
+        margin-bottom: 0;
+    }
 
     /* Past breakfasts section (Chalkboard) */
     .past-breakfasts-section {
@@ -499,16 +500,18 @@ const members = [
             padding-top: 2.2rem;
         }
 
+        .bear-on-card {
+            position: absolute;
+            top: 110px;
+            right: 300px;
+            width: 120px;
+            height: auto;
+            z-index: 10;
+        }
+
         /* Past breakfasts section */
         .past-breakfasts-section {
             padding: var(--spacing-md) var(--spacing-md);
-        }
-
-        .bear-on-card {
-        top: -650px;
-        right: -310px;
-        width: 120px;
-        z-index: 10;
         }
 
         .past-breakfasts-grid {
