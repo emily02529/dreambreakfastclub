@@ -80,11 +80,7 @@ const members = [
         <section id="today" class="content-section today-breakfast-section">
             <h2 class="section-title">Today's breakfast</h2>
 
-            <img
-                src="/images/cute-bear.png"
-                alt="Cute bear mascot"
-                class="bear-on-card"
-            />
+          
 
             <div class="breakfast-card">
 
@@ -94,7 +90,11 @@ const members = [
                     alt="Today's Breakfast: Aurora Pancakes"
                     class="breakfast-image"
                 />
-                <div class="card-content">
+                 <img
+                src="/images/cute-bear.png"
+                alt="Cute bear mascot"
+                class="bear-on-card-2"
+            /> <div class="card-content">
                     <h3>Aurora Pancakes</h3>
                     <p>
                         Fluffy pancakes topped with pastel syrup that shimmers
@@ -261,7 +261,7 @@ const members = [
         height: auto;
         z-index: 3;
     }
-
+ 
     .card-content {
         text-align: center;
         padding: var(--spacing-md);
@@ -334,13 +334,13 @@ const members = [
 
     .chalkboard-text {
         color: #ffffff;
-        font-size: 1.5rem;
+        font-size: 1rem;
         line-height: 1.2;
     }
 
     .chalkboard-text-small {
         color: #ffffff;
-        font-size: 1.5rem;
+        font-size: 1rem;
         margin-top: 0.2rem;
         margin-bottom: var(--spacing-lg);
     }
@@ -498,22 +498,12 @@ const members = [
         margin-top: 1rem;
     }
 
-    @media (min-width: 443px) and (max-width: 599px) {
-    .bear-on-card {
-        top: 150px;
-        right: calc((100vw - 400px) / 2 - 20px); 
-        
-        width: 100px; 
-    }
-}
-
-    @media (min-width: 600px) and (max-width: 767px) {
-    .bear-on-card {
-        top: 150px;
-        right: calc((100vw - 400px) / 2 - 20px); 
-        
-        width: 100px; 
-    }
+     .breakfast-card > .bear-on-card-2{
+        position:absolute;
+        top: -50px;
+        right: -20px;
+        width: 100px;
+    
 
         
 }
@@ -522,13 +512,6 @@ const members = [
         .today-breakfast-section {
             padding-top: 2.2rem;
         }
-
-
-    .bear-on-card {
-        top: 130px; 
-        right: calc((100vw - 400px) / 2 - 20px); 
-        width: 100px; 
-    }
 }
 
         /* Past breakfasts section */
@@ -551,6 +534,13 @@ const members = [
             bottom: -75px;
         }
 
+    .chalkboard-text {
+        font-size: 1.5rem;
+    }
+
+    .chalkboard-text-small {
+        font-size: 1.5rem;
+    }
         /* Members section */
         .members-grid {
             max-width: 1000px;
@@ -583,4 +573,7 @@ const members = [
             font-size: 1rem;
         }
     }
+
+
+      
 </style>
